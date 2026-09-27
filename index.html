@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ПДД — Правила для подростков 12–16</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: #1a1d24;
+            color: #e8eaf0;
+            line-height: 1.6;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background: #12151b;
+            padding: 18px 0;
+            border-bottom: 2px solid #ffc107;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .container {
+            max-width: 1150px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 1.4em;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #fff;
+            letter-spacing: 0.5px;
+        }
+
+        .logo span {
+            font-size: 1.5em;
+        }
+
+        .logo .age-badge {
+            background: #ffc107;
+            color: #12151b;
+            font-size: 0.55em;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: 800;
+            letter-spacing: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #b8bdc9;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 14px;
+            border-radius: 8px;
+            transition: all 0.25s;
+            font-size: 0.95em;
+        }
+
+        nav a:hover {
+            color: #12151b;
+            background: #ffc107;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            background: linear-gradient(135deg, rgba(26, 29, 36, 0.85) 0%, rgba(18, 21, 27, 0.95) 100%),
+                url('https://images.unsplash.com/photo-1502877338535-766e1452684a?w=1600') center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 100px 20px;
+            border-bottom: 2px solid #ffc107;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 18px;
+            font-weight: 900;
+            line-height: 1.15;
+            letter-spacing: -0.5px;
+        }
+
+        .hero h1 .accent {
+            color: #ffc107;
+            text-shadow: 0 0 30px rgba(255, 193, 7, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.15em;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #c8cdd8;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #ffc107;
+            color: #12151b;
+            padding: 16px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.05em;
+            border: none;
+            cursor: pointer;
+            transition: all 0.25s;
+            box-shadow: 0 6px 20px rgba(255, 193, 7, 0.35);
+            letter-spacing: 0.5px;
+        }
+
+        .btn:hover {
+            background: #ffd54f;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 193, 7, 0.55);
+        }
+
+        /* ===== SECTIONS ===== */
+        section {
+            padding: 70px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.1em;
+            margin-bottom: 12px;
+            color: #fff;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 4px;
+            background: linear-gradient(90deg, #ffc107, #ff9800);
+            margin: 16px auto 0;
+            border-radius: 3px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #8f96a3;
+            margin-bottom: 45px;
+            font-size: 1.05em;
+        }
+
+        /* ===== CARDS ===== */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background: #242832;
+            border-radius: 16px;
+            padding: 28px;
+            border: 1px solid #333844;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #ffc107, #ff9800);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: #ffc107;
+            background: #2a2f3a;
+            box-shadow: 0 15px 35px rgba(255, 193, 7, 0.15);
+        }
+
+        .card-icon {
+            font-size: 2.8em;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .card h3 {
+            color: #fff;
+            margin-bottom: 12px;
+            font-size: 1.25em;
+            font-weight: 700;
+        }
+
+        .card p {
+            color: #b8bdc9;
+            font-size: 0.97em;
+        }
+
+        .card .tip {
+            display: inline-block;
+            margin-top: 12px;
+            font-size: 0.85em;
+            color: #ffc107;
+            font-weight: 600;
+            background: rgba(255, 193, 7, 0.1);
+            padding: 6px 12px;
+            border-radius: 20px;
+        }
+
+        /* ===== SIGNS ===== */
+        .signs-section {
+            background: #12151b;
+        }
+
+        .signs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 18px;
+        }
+
+        .sign {
+            background: #242832;
+            border: 1px solid #333844;
+            border-radius: 14px;
+            padding: 22px 15px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .sign:hover {
+            transform: translateY(-5px) scale(1.03);
+            border-color: #ffc107;
+            background: #2a2f3a;
+            box-shadow: 0 10px 25px rgba(255, 193, 7, 0.2);
+        }
+
+        .sign-img {
+            width: 75px;
+            height: 75px;
+            margin: 0 auto 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.8em;
+        }
+
+        .sign p {
+            font-size: 0.88em;
+            color: #c8cdd8;
+            font-weight: 500;
+        }
+
+        /* ===== QUIZ ===== */
+        .quiz-wrap {
+            background: #242832;
+            border: 1px solid #333844;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 720px;
+            margin: 0 auto;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quiz-wrap::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #ffc107, #ff9800, #ffc107);
+        }
+
+        .question {
+            font-size: 1.2em;
+            margin-bottom: 22px;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.4;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .option {
+            padding: 16px 20px;
+            border: 2px solid #3a3f4d;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: #1a1d24;
+            color: #d0d4de;
+            font-weight: 500;
+        }
+
+        .option:hover {
+            border-color: #ffc107;
+            background: #232833;
+            color: #fff;
+            transform: translateX(5px);
+        }
+
+        .option.correct {
+            border-color: #28a745;
+            background: rgba(40, 167, 69, 0.18);
+            color: #6ee08a;
+        }
+
+        .option.wrong {
+            border-color: #dc3545;
+            background: rgba(220, 53, 69, 0.18);
+            color: #f0717e;
+        }
+
+        .quiz-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 22px;
+            color: #8f96a3;
+            font-size: 0.95em;
+            font-weight: 600;
+        }
+
+        .quiz-info span b {
+            color: #ffc107;
+        }
+
+        .result {
+            text-align: center;
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #fff;
+            margin-top: 20px;
+        }
+
+        /* ===== FACTS ===== */
+        .facts-section {
+            background: #12151b;
+        }
+
+        .facts-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .fact {
+            background: #242832;
+            border-left: 4px solid #ffc107;
+            border-radius: 10px;
+            padding: 22px;
+            transition: all 0.3s;
+        }
+
+        .fact:hover {
+            background: #2a2f3a;
+            transform: translateX(5px);
+        }
+
+        .fact h4 {
+            color: #ffc107;
+            margin-bottom: 8px;
+            font-size: 1.05em;
+        }
+
+        .fact p {
+            color: #b8bdc9;
+            font-size: 0.95em;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #12151b;
+            color: #8f96a3;
+            text-align: center;
+            padding: 32px 20px;
+            border-top: 2px solid #ffc107;
+        }
+
+        footer b {
+            color: #fff;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 2.1em;
+            }
+
+            nav ul {
+                gap: 10px;
+            }
+
+            nav a {
+                padding: 6px 10px;
+                font-size: 0.85em;
+            }
+
+            .quiz-wrap {
+                padding: 24px;
+            }
+
+            .section-title {
+                font-size: 1.7em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <span>🚦</span> ПДД
+                <span class="age-badge">12–16 лет</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#rules">Правила</a></li>
+                    <li><a href="#signs">Знаки</a></li>
+                    <li><a href="#facts">Факты</a></li>
+                    <li><a href="#quiz">Тест</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+        <h1>Знай ПДД — <span class="accent">будь на стиле</span> 🛹</h1>
+        <p>Правила, которые реально пригодятся: на велосипеде, самокате, скейте и просто когда идёшь по улице.</p>
+        <a href="#quiz" class="btn">Проверить себя →</a>
+    </section>
+
+    <!-- ===== RULES ===== -->
+    <section id="rules">
+        <div class="container">
+            <h2 class="section-title">Правила, которые надо знать</h2>
+            <p class="section-subtitle">Без скуки — только то, что реально пригодится</p>
+
+            <div class="cards">
+                <div class="card">
+                    <span class="card-icon">🛴</span>
+                    <h3>Самокат и СИМ</h3>
+                    <p>Двигайся по тротуару или велодорожке. На переходе — <b>слезь и переведи</b> самокат руками. Шлем
+                        — не для слабых, а для умных.</p>
+                    <span class="tip">⚡ Максимум 25 км/ч</span>
+                </div>
+
+                <div class="card">
+                    <span class="card-icon">🚴</span>
+                    <h3>Велосипед</h3>
+                    <p>До 14 лет — только по тротуарам и велодорожкам. С 14 лет можно по правому краю дороги. <b>Фары и
+                            звонок</b> — обязательны!</p>
+                    <span class="tip">🚧 С 14 лет — на проезжую часть</span>
+                </div>
+
+                <div class="card">
+                    <span class="card-icon">🛹</span>
+                    <h3>Скейт и ролики</h3>
+                    <p>Катайся в парках и на специальных площадках. На проезжую часть — <b>нельзя</b>. Защита для
+                        коленей и локтей — твой лучший друг.</p>
+                    <span class="tip">🛡️ Наколенники + шлем</span>
+                </div>
+
+                <div class="card">
+                    <span class="card-icon">🚶</span>
+                    <h3>Пешеход</h3>
+                    <p>Переходи только по «зебре» и на зелёный. <b>Убери телефон!</b> Наушники в одном ухе — так ты
+                        слышишь машины.</p>
+                    <span class="tip">📵 Телефон — в карман</span>
+                </div>
+
+                <div class="card">
+                    <span class="card-icon">🚌</span>
+                    <h3>Автобус и метро</h3>
+                    <p>Не перебегай перед автобусом — он тебя <b>не видит</b>. Обходи автобус сзади, трамвай — спереди.
+                    </p>
+                    <span class="tip">👀 Обходи сзади</span>
+                </div>
+
+                <div class="card">
+                    <span class="card-icon">🌙</span>
+                    <h3>Ночью</h3>
+                    <p>Тёмная одежда = тебя не видно за 30 метров. Надень <b>светоотражатель</b> или яркую куртку —
+                        водитель увидит за 150 м.</p>
+                    <span class="tip">✨ Фликер = жизнь</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SIGNS ===== -->
+    <section id="signs" class="signs-section">
+        <div class="container">
+            <h2 class="section-title">Знаки, которые встречаешь каждый день</h2>
+            <p class="section-subtitle">Запомни — и не попадёшь в неприятности</p>
+
+            <div class="signs-grid">
+                <div class="sign">
+                    <div class="sign-img">🚶‍♂️</div>
+                    <p>Пешеходный переход</p>
+                </div>
+                <div class="sign">
+                    <div class="sign-img">🚴</div>
+                    <p>Велосипедная дорожка</p>
+                </div>
+                <div class="sign">
+                    <div class="sign-img">🛴</div>
+                    <p>Для СИМ разрешено</p>
+                </div>
+                <div class="sign">
+                    <div class="sign-img">🚸</div>
+                    <p>Осторожно, дети!</p>
+                </div>
+                <div class="sign">
+                    <div class="sign-img">⛔</div>
+                    <p>Въезд запрещён</p>
+                </div>
+                <div class="sign">
+                    <div class="sign-img">🚧</div>
+                    <p>Дорожные работы</p>
+                </div>
+                <div class="sign">
+                    <div class="sign-img">⬆️</div>
+                    <p>Движение прямо</p>
+                </div>
+                <div class="sign">
+                    <div class="sign-img">🚦</div>
+                    <p>Светофор</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FACTS ===== -->
+    <section id="facts" class="facts-section">
+        <div class="container">
+            <h2 class="section-title">Шок-факты про дороги</h2>
+            <p class="section-subtitle">Цифры, которые заставляют задуматься</p>
+
+            <div class="facts-list">
+                <div class="fact">
+                    <h4>📱 1 секунда = 15 метров</h4>
+                    <p>Отвлёкся на телефон за рулём на 1 секунду при 50 км/ч — машина проехала 15 метров вслепую.</p>
+                </div>
+                <div class="fact">
+                    <h4>🚴 70% ДТП с велосипедами</h4>
+                    <p>Большинство аварий с велосипедистами происходит в тёмное время суток. Фликер снижает риск в 6
+                        раз.</p>
+                </div>
+                <div class="fact">
+                    <h4>🎧 Наушники опасны</h4>
+                    <p>Музыка в двух наушниках = ты не слышишь ни машины, ни сигналов. Один наушник — золотое правило.
+                    </p>
+                </div>
+                <div class="fact">
+                    <h4>🛴 Самокаты — новая угроза</h4>
+                    <p>За последние годы число ДТП с самокатами выросло в разы. Скорость до 25 км/ч — это серьёзно.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== QUIZ ===== -->
+    <section id="quiz">
+        <div class="container">
+            <h2 class="section-title">Проверь, шаришь ли ты</h2>
+            <p class="section-subtitle">6 вопросов — насколько ты готов к реальной дороге</p>
+
+            <div class="quiz-wrap">
+                <div class="quiz-info">
+                    <span>Вопрос <b id="qNum">1</b> из 6</span>
+                    <span>Правильно: <b id="score">0</b></span>
+                </div>
+                <div class="question" id="question">Загрузка...</div>
+                <div class="options" id="options"></div>
+                <div class="result" id="result"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <p>© 2025 <b>ПДД для молодых</b> — правила, которые реально работают</p>
+        <p style="margin-top:8px;">Соблюдай ПДД — и будь жив. 🚦✨</p>
+    </footer>
+
+    <script>
+        /* ===== ТЕСТ ===== */
+        const questions = [
+            {
+                q: "Со скольки лет можно выезжать на велосипеде на проезжую часть?",
+                a: ["С 10 лет", "С 12 лет", "С 14 лет", "С 18 лет"],
+                correct: 2
+            },
+            {
+                q: "Как правильно переходить дорогу с самокатом?",
+                a: ["Проехать быстро", "Слезть и перевести рядом", "Проехать медленно", "Перепрыгнуть"],
+                correct: 1
+            },
+            {
+                q: "Сколько наушников безопасно носить на улице?",
+                a: ["Оба", "Один", "Три", "Ни одного только дома"],
+                correct: 1
+            },
+            {
+                q: "Что делать, если перед тобой стоит автобус?",
+                a: ["Перебежать спереди", "Обойти сзади", "Обойти спереди", "Перелезть"],
+                correct: 1
+            },
+            {
+                q: "Какой знак означает «Велосипедная дорожка»?",
+                a: ["🚶", "🚴", "🚦", "⛔"],
+                correct: 1
+            },
+            {
+                q: "Зачем нужен фликер (светоотражатель)?",
+                a: ["Для красоты", "Чтобы водитель видел за 150 м", "Чтобы светить", "Просто так"],
+                correct: 1
+            }
+        ];
+
+        let current = 0;
+        let score = 0;
+        let answered = false;
+
+        const qNumEl = document.getElementById('qNum');
+        const scoreEl = document.getElementById('score');
+        const questionEl = document.getElementById('question');
+        const optionsEl = document.getElementById('options');
+        const resultEl = document.getElementById('result');
+
+        function loadQuestion() {
+            answered = false;
+            const q = questions[current];
+            qNumEl.textContent = current + 1;
+            scoreEl.textContent = score;
+            questionEl.textContent = q.q;
+            optionsEl.innerHTML = '';
+            resultEl.textContent = '';
+
+            q.a.forEach((text, i) => {
+                const div = document.createElement('div');
+                div.className = 'option';
+                div.textContent = text;
+                div.onclick = () => selectAnswer(div, i);
+                optionsEl.appendChild(div);
+            });
+        }
+
+        function selectAnswer(el, index) {
+            if (answered) return;
+            answered = true;
+            const q = questions[current];
+            const opts = optionsEl.querySelectorAll('.option');
+
+            if (index === q.correct) {
+                el.classList.add('correct');
+                score++;
+                scoreEl.textContent = score;
+                resultEl.style.color = '#6ee08a';
+                resultEl.textContent = '✅ Красава! Верно!';
+            } else {
+                el.classList.add('wrong');
+                opts[q.correct].classList.add('correct');
+                resultEl.style.color = '#f0717e';
+                resultEl.textContent = '❌ Мимо. Правильный ответ — зелёный.';
+            }
+
+            setTimeout(() => {
+                current++;
+                if (current < questions.length) {
+                    loadQuestion();
+                } else {
+                    showFinal();
+                }
+            }, 1600);
+        }
+
+        function showFinal() {
+            questionEl.textContent = 'Тест пройден! 🎉';
+            optionsEl.innerHTML = '';
+            resultEl.style.color = '#fff';
+
+            let verdict = '';
+            if (score === questions.length) verdict = '🏆 Ты — гуру дорог!';
+            else if (score >= 4) verdict = '😎 Круто! Немного до идеала.';
+            else if (score >= 2) verdict = '🤔 Есть над чем подумать...';
+            else verdict = '😬 Лучше перечитай правила!';
+
+            resultEl.innerHTML = `Результат: <b>${score}</b> из <b>${questions.length}</b><br>${verdict}<br>`;
+
+            const btn = document.createElement('button');
+            btn.className = 'btn';
+            btn.style.marginTop = '20px';
+            btn.textContent = '🔄 Пройти снова';
+            btn.onclick = () => {
+                current = 0; score = 0;
+                loadQuestion();
+            };
+            optionsEl.appendChild(btn);
+        }
+
+        loadQuestion();
+    </script>
+
+</body>
+
+</html>
